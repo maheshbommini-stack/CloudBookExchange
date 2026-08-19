@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Exchange Requests</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<header>
+
+    <h1>📚 Cloud Book Exchange</h1>
+
+    <nav>
+        <a href="/">Home</a> |
+        <a href="/dashboard">Dashboard</a> |
+        <a href="/books">Books</a> |
+        <a href="/add-book">Add Book</a> |
+        <a href="/logout">Logout</a>
+    </nav>
+
+</header>
+
+<main>
+
+    <h2>📩 Exchange Requests</h2>
+
+    {% if requests %}
+
+        {% for request in requests %}
+
+            <div class="book-card">
+
+                <h3>📖 {{ request.title }}</h3>
+
+                <p>
+                    <strong>Requested by:</strong>
+                    {{ request.username }}
+                </p>
+
+                <p>
+                    <strong>Email:</strong>
+                    {{ request.email }}
+                </p>
+
+                <p>
+                    <strong>Status:</strong>
+                    {{ request.status }}
+                </p>
+
+                {% if request.status == "Pending" %}
+
+                    <form method="POST"
+                          action="{{ url_for('accept_request', request_id=request.id) }}">
+
+                        <button type="submit">
+                            ✅ Accept
+                        </button>
+
+                    </form>
+
+                    <br>
+
+                    <form method="POST"
+                          action="{{ url_for('reject_request', request_id=request.id) }}">
+
+                        <button type="submit">
+                            ❌ Reject
+                        </button>
+
+                    </form>
+
+                {% endif %}
+
+            </div>
+
+            <hr>
+
+        {% endfor %}
+
+    {% else %}
+
+        <p>No exchange requests yet.</p>
+
+    {% endif %}
+
+</main>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Book - Cloud Book Exchange</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <header>
+        <h1>📚 Cloud Book Exchange</h1>
+
+        <nav>
+            <a href="/">Home</a> |
+            <a href="/dashboard">Dashboard</a> |
+            <a href="/books">Books</a> |
+            <a href="/logout">Logout</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <h2>Add Your Book</h2>
+
+        <form method="POST" action="/add-book">
+
+            <label for="title">Book Title:</label>
+            <br>
+            <input
+                type="text"
+                id="title"
+                name="title"
+                required
+            >
+
+            <br><br>
+
+            <label for="author">Author:</label>
+            <br>
+            <input
+                type="text"
+                id="author"
+                name="author"
+                required
+            >
+
+            <br><br>
+
+            <label for="subject">Subject:</label>
+            <br>
+            <input
+                type="text"
+                id="subject"
+                name="subject"
+                required
+            >
+
+            <br><br>
+
+            <label for="condition">Book Condition:</label>
+            <br>
+
+            <select id="condition" name="condition" required>
+                <option value="">Select Condition</option>
+                <option value="New">New</option>
+                <option value="Good">Good</option>
+                <option value="Used">Used</option>
+            </select>
+
+            <br><br>
+
+            <button type="submit">Add Book</button>
+
+        </form>
+
+        <p>
+            <a href="/books">View Available Books</a>
+        </p>
+
+    </main>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>

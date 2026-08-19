@@ -1,0 +1,790 @@
+/* =========================================================
+   CLOUD BOOK EXCHANGE
+   PROFESSIONAL MODERN UI
+========================================================= */
+
+
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* =========================
+   BODY
+========================= */
+
+body {
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f8fafc 0%,
+            #eef2ff 50%,
+            #f8fafc 100%
+        );
+
+    color: #172033;
+
+    min-height: 100vh;
+
+    line-height: 1.6;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+    background: #111827;
+
+    color: white;
+
+    padding: 22px 7%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 25px;
+
+    box-shadow:
+        0 4px 20px rgba(15, 23, 42, 0.15);
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1000;
+}
+
+
+header h1 {
+    font-size: 23px;
+
+    font-weight: 700;
+
+    letter-spacing: -0.5px;
+
+    white-space: nowrap;
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+nav {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 5px;
+}
+
+
+nav a {
+    color: #dbe4f0;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    padding: 8px 12px;
+
+    border-radius: 8px;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+nav a:hover {
+    color: white;
+
+    background: #273449;
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+
+main {
+    width: min(1080px, 92%);
+
+    margin: 45px auto;
+
+    padding: 42px;
+
+    background: rgba(255, 255, 255, 0.96);
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 20px 50px rgba(15, 23, 42, 0.08);
+}
+
+
+/* =========================
+   HEADINGS
+========================= */
+
+h2 {
+    color: #111827;
+
+    font-size: 32px;
+
+    line-height: 1.2;
+
+    letter-spacing: -0.8px;
+
+    margin-bottom: 12px;
+}
+
+
+h3 {
+    color: #1f2937;
+
+    font-size: 21px;
+
+    margin-bottom: 10px;
+}
+
+
+p {
+    color: #64748b;
+
+    margin-bottom: 15px;
+}
+
+
+/* =========================
+   LINKS
+========================= */
+
+a {
+    color: #4f46e5;
+
+    transition: 0.2s ease;
+}
+
+
+a:hover {
+    color: #3730a3;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+button {
+    appearance: none;
+
+    border: none;
+
+    background: #4f46e5;
+
+    color: white;
+
+    padding: 11px 18px;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+button:hover {
+    background: #4338ca;
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 6px 15px rgba(79, 70, 229, 0.25);
+}
+
+
+button:active {
+    transform: translateY(0);
+}
+
+
+/* =========================
+   FORMS
+========================= */
+
+form {
+    margin-top: 20px;
+}
+
+
+label {
+    display: block;
+
+    color: #334155;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    margin-bottom: 7px;
+}
+
+
+/* =========================
+   INPUTS
+========================= */
+
+input,
+select {
+    width: 100%;
+
+    padding: 13px 14px;
+
+    margin-top: 5px;
+
+    margin-bottom: 15px;
+
+    border: 1px solid #d7dce5;
+
+    border-radius: 9px;
+
+    background: #f8fafc;
+
+    color: #1e293b;
+
+    font-size: 15px;
+
+    transition:
+        border 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+
+input::placeholder {
+    color: #94a3b8;
+}
+
+
+input:hover,
+select:hover {
+    border-color: #a5b4fc;
+}
+
+
+input:focus,
+select:focus {
+    outline: none;
+
+    background: white;
+
+    border-color: #6366f1;
+
+    box-shadow:
+        0 0 0 3px rgba(99, 102, 241, 0.12);
+}
+
+
+/* =========================
+   BOOK CARDS
+========================= */
+
+.book-card {
+    position: relative;
+
+    background: white;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 15px;
+
+    padding: 24px;
+
+    margin: 20px 0;
+
+    box-shadow:
+        0 5px 20px rgba(15, 23, 42, 0.05);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+
+.book-card::before {
+    content: "BOOK";
+
+    position: absolute;
+
+    top: 20px;
+
+    right: 20px;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    color: #6366f1;
+
+    background: #eef2ff;
+
+    padding: 5px 9px;
+
+    border-radius: 20px;
+}
+
+
+.book-card:hover {
+    transform: translateY(-4px);
+
+    border-color: #c7d2fe;
+
+    box-shadow:
+        0 14px 30px rgba(15, 23, 42, 0.09);
+}
+
+
+.book-card h3 {
+    color: #111827;
+
+    font-size: 22px;
+
+    padding-right: 70px;
+}
+
+
+.book-card p {
+    margin-bottom: 8px;
+
+    color: #64748b;
+}
+
+
+.book-card strong {
+    color: #334155;
+}
+
+
+/* =========================
+   BOOK BUTTON
+========================= */
+
+.book-card button {
+    margin-top: 8px;
+}
+
+
+/* =========================
+   SEARCH BOX
+========================= */
+
+main > form:first-of-type {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin: 28px 0;
+
+    padding: 10px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 12px;
+}
+
+
+main > form:first-of-type input {
+    flex: 1;
+
+    margin: 0;
+
+    border: none;
+
+    background: transparent;
+
+    box-shadow: none;
+}
+
+
+main > form:first-of-type input:focus {
+    border: none;
+
+    box-shadow: none;
+
+    background: transparent;
+}
+
+
+main > form:first-of-type button {
+    margin: 0;
+
+    white-space: nowrap;
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
+
+section {
+    margin-top: 30px;
+
+    padding: 25px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 14px;
+}
+
+
+section h3 {
+    margin-bottom: 15px;
+}
+
+
+/* =========================
+   DASHBOARD LINKS
+========================= */
+
+section a {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    text-decoration: none;
+
+    background: white;
+
+    border: 1px solid #e5e7eb;
+
+    color: #334155;
+
+    padding: 12px 16px;
+
+    border-radius: 9px;
+
+    font-weight: 700;
+
+    margin: 5px 5px 5px 0;
+
+    transition: 0.2s ease;
+}
+
+
+section a:hover {
+    color: #4f46e5;
+
+    border-color: #c7d2fe;
+
+    background: #eef2ff;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   STATUS
+========================= */
+
+.status {
+    display: inline-block;
+
+    padding: 6px 12px;
+
+    border-radius: 20px;
+
+    font-size: 13px;
+
+    font-weight: 700;
+}
+
+
+/* =========================
+   HORIZONTAL LINE
+========================= */
+
+hr {
+    border: none;
+
+    border-top: 1px solid #e5e7eb;
+
+    margin: 25px 0;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    text-align: center;
+
+    padding: 30px;
+
+    color: #94a3b8;
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   EXCHANGE REQUEST CARDS
+========================= */
+
+.request-card {
+    background: white;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 14px;
+
+    padding: 22px;
+
+    margin: 18px 0;
+
+    box-shadow:
+        0 5px 18px rgba(15, 23, 42, 0.05);
+
+    transition: 0.2s ease;
+}
+
+
+.request-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 25px rgba(15, 23, 42, 0.08);
+}
+
+
+/* =========================
+   ACCEPT BUTTON
+========================= */
+
+.accept-btn {
+    background: #16a34a;
+}
+
+
+.accept-btn:hover {
+    background: #15803d;
+
+    box-shadow:
+        0 6px 15px rgba(22, 163, 74, 0.25);
+}
+
+
+/* =========================
+   REJECT BUTTON
+========================= */
+
+.reject-btn {
+    background: #dc2626;
+}
+
+
+.reject-btn:hover {
+    background: #b91c1c;
+
+    box-shadow:
+        0 6px 15px rgba(220, 38, 38, 0.25);
+}
+
+
+/* =========================
+   RESPONSIVE TABLET
+========================= */
+
+@media (max-width: 850px) {
+
+    header {
+        flex-direction: column;
+
+        text-align: center;
+
+        padding: 20px;
+    }
+
+
+    main {
+        margin: 30px auto;
+
+        padding: 28px;
+    }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    header h1 {
+        font-size: 20px;
+    }
+
+
+    nav {
+        gap: 3px;
+    }
+
+
+    nav a {
+        font-size: 12px;
+
+        padding: 7px 8px;
+    }
+
+
+    main {
+        width: 94%;
+
+        margin: 20px auto;
+
+        padding: 22px;
+
+        border-radius: 15px;
+    }
+
+
+    h2 {
+        font-size: 26px;
+    }
+
+
+    h3 {
+        font-size: 19px;
+    }
+
+
+    .book-card {
+        padding: 19px;
+    }
+
+
+    .book-card::before {
+        display: none;
+    }
+
+
+    .book-card h3 {
+        padding-right: 0;
+    }
+
+
+    main > form:first-of-type {
+        flex-direction: column;
+
+        padding: 12px;
+    }
+
+
+    main > form:first-of-type input {
+        width: 100%;
+    }
+
+
+    main > form:first-of-type button {
+        width: 100%;
+    }
+
+
+    button {
+        width: 100%;
+    }
+
+
+    section {
+        padding: 18px;
+    }
+
+
+    section a {
+        width: 100%;
+
+        justify-content: center;
+
+        margin-right: 0;
+    }
+
+
+    .request-card button {
+        width: 100%;
+
+        margin-top: 8px;
+    }
+
+}
+
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 380px) {
+
+    header h1 {
+        font-size: 18px;
+    }
+
+
+    main {
+        padding: 17px;
+    }
+
+
+    h2 {
+        font-size: 23px;
+    }
+
+}

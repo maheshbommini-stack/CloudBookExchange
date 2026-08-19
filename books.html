@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Books - Cloud Book Exchange</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+
+        <h1>📚 Cloud Book Exchange</h1>
+
+        <nav>
+
+            <a href="/">
+                Home
+            </a> |
+
+            <a href="/dashboard">
+                Dashboard
+            </a> |
+
+            <a href="/books">
+                Books
+            </a> |
+
+            <a href="/add-book">
+                Add Book
+            </a> |
+
+            <a href="/exchange-requests">
+                📩 Exchange Requests
+            </a> |
+
+            <a href="/logout">
+                Logout
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- MAIN -->
+    <main>
+
+        <h2>
+            📚 Available Books
+        </h2>
+
+        <p>
+            Books available for exchange:
+        </p>
+
+
+        <!-- SEARCH -->
+        <form method="GET"
+              action="{{ url_for('books') }}">
+
+            <input
+                type="text"
+                name="search"
+                placeholder="Search by title, author or subject"
+                value="{{ request.args.get('search', '') }}"
+            >
+
+            <button type="submit">
+                🔎 Search
+            </button>
+
+        </form>
+
+
+        <br>
+
+
+        <!-- BOOK LIST -->
+
+        {% if books %}
+
+            {% for book in books %}
+
+                <div class="book-card">
+
+                    <h3>
+                        📖 {{ book.title }}
+                    </h3>
+
+
+                    <p>
+                        <strong>Author:</strong>
+                        {{ book.author }}
+                    </p>
+
+
+                    <p>
+                        <strong>Subject:</strong>
+                        {{ book.subject }}
+                    </p>
+
+
+                    <p>
+                        <strong>Condition:</strong>
+                        {{ book.condition }}
+                    </p>
+
+
+                    <!-- EXCHANGE BUTTON -->
+
+                    {% if book.owner_id != session.get("user_id") %}
+
+                        <form
+                            method="POST"
+                            action="{{ url_for(
+                                'request_exchange',
+                                book_id=book.id
+                            ) }}"
+                        >
+
+                            <button type="submit">
+                                🔄 Request Exchange
+                            </button>
+
+                        </form>
+
+                    {% else %}
+
+                        <p>
+                            📚 <strong>This is your book.</strong>
+                        </p>
+
+                    {% endif %}
+
+
+                    <hr>
+
+                </div>
+
+            {% endfor %}
+
+
+        {% else %}
+
+            <p>
+                No books are currently available.
+            </p>
+
+        {% endif %}
+
+    </main>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>My Exchange Requests</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<header>
+
+    <h1>📚 Cloud Book Exchange</h1>
+
+    <nav>
+
+        <a href="/">Home</a> |
+
+        <a href="/dashboard">Dashboard</a> |
+
+        <a href="/books">Books</a> |
+
+        <a href="/add-book">Add Book</a> |
+
+        <a href="/exchange-requests">
+            Received Requests
+        </a> |
+
+        <a href="/logout">
+            Logout
+        </a>
+
+    </nav>
+
+</header>
+
+
+<main>
+
+    <h2>📩 My Exchange Requests</h2>
+
+    <p>
+        Here you can see the status of the books
+        you requested.
+    </p>
+
+
+    {% if requests %}
+
+        {% for request in requests %}
+
+            <div class="book-card">
+
+                <h3>
+                    📖 {{ request.title }}
+                </h3>
+
+                <p>
+                    <strong>Author:</strong>
+                    {{ request.author }}
+                </p>
+
+                <p>
+                    <strong>Subject:</strong>
+                    {{ request.subject }}
+                </p>
+
+                <p>
+                    <strong>Book Owner:</strong>
+                    {{ request.owner_name }}
+                </p>
+
+
+                {% if request.status == "Pending" %}
+
+                    <p>
+                        <strong>Status:</strong>
+                        ⏳ Pending
+                    </p>
+
+                    <p>
+                        Waiting for the book owner
+                        to respond.
+                    </p>
+
+
+                {% elif request.status == "Accepted" %}
+
+                    <p>
+                        <strong>Status:</strong>
+                        ✅ Accepted
+                    </p>
+
+                    <p>
+                        🎉 Your exchange request
+                        has been accepted!
+                    </p>
+
+
+                {% elif request.status == "Rejected" %}
+
+                    <p>
+                        <strong>Status:</strong>
+                        ❌ Rejected
+                    </p>
+
+                    <p>
+                        The book owner rejected
+                        your request.
+                    </p>
+
+                {% endif %}
+
+            </div>
+
+            <hr>
+
+        {% endfor %}
+
+
+    {% else %}
+
+        <p>
+            You have not requested any books yet.
+        </p>
+
+    {% endif %}
+
+</main>
+
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>

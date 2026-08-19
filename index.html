@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cloud Book Exchange</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+    <header>
+        <h1>📚 Cloud Book Exchange</h1>
+
+        <nav>
+            <a href="/">Home</a> |
+            <a href="/login">Login</a> |
+            <a href="/register">Register</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Welcome to Cloud Book Exchange</h2>
+
+        <p>
+            Exchange books with other students easily and conveniently.
+        </p>
+
+        <a href="/register">Get Started</a>
+        <br><br>
+        <a href="/login">Login</a>
+    </main>
+
+    <footer>
+        <p>© 2026 Cloud Book Exchange</p>
+    </footer>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
